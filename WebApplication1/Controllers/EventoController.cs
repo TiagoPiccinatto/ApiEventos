@@ -51,7 +51,7 @@ namespace WebApplication1.Controllers
         [HttpDelete("{id}")]
         public string Delete(int id)
         {
-            return $"Voce Apagou {id} ";
+            return $"Voce Apagouuu {id} ";
         }
         
 
