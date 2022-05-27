@@ -29,4 +29,15 @@ export class EventosComponent implements OnInit {
   }
 
 
+  public deleteEvento(id: number): void{
+    this.http.delete(`https://localhost:5001/api/test/Evento/${id}`).subscribe(
+      response => {
+        this.getEvento();
+      },
+      error => {
+        console.log(error);
+      }
+    );
+  }
+
 }
