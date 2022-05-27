@@ -8,10 +8,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./eventos.component.scss']
 })
 export class EventosComponent implements OnInit {
+  ngIf="exibirimagem";
+  exibirimagem = false;
+  public eventos: any = [];
 
-  public eventos: any;
-
-
+  tamanhoimg: number = 150;
+  tamanhomargin = 2;
 
 
   constructor(private http: HttpClient) { }
@@ -20,7 +22,7 @@ export class EventosComponent implements OnInit {
     this.getEvento();
   }
 
-  public getEvento(): void{
+  public getEvento(): void {
     this.http.get('https://localhost:5001/api/test/Evento').subscribe(
       response => this.eventos = response,
 
@@ -28,16 +30,5 @@ export class EventosComponent implements OnInit {
 
   }
 
-
-  public deleteEvento(id: number): void{
-    this.http.delete(`https://localhost:5001/api/test/Evento/${id}`).subscribe(
-      response => {
-        this.getEvento();
-      },
-      error => {
-        console.log(error);
-      }
-    );
-  }
 
 }
