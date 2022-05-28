@@ -1,9 +1,11 @@
 using System;
+using Domain.Modesl;
+
 namespace Domain
 {
     public class PalestranteEvento
     {
-        public int id { get; set; }
+        public int Id { get; set; }
 
         public Palestrante Palestrante { get; set; }
 

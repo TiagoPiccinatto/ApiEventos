@@ -1,11 +1,13 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using BancoContext.Persistence;
+using Domain.Modesl;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using WebApplication1.Data;
-using WebApplication1.Modesl;
+
+
 
 namespace WebApplication1.Controllers
 {

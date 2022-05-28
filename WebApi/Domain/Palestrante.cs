@@ -6,7 +6,7 @@ namespace Domain
 {
     public class Palestrante
     {
-      public int id { get; set; }
+      public int Id { get; set; }
 
         public string Nome { get; set; }
 
@@ -19,12 +19,6 @@ namespace Domain
         public string Email { get; set; }
 
         public IEnumerable<RedeSocial> RedeSociais { get; set; }
-
-        public IEnumerable<PalestranteEvento> PalestranteEventos { get; set; }
-
-        public List<Lote> Lotes { get; set; }
-
-        public List<RedeSocial> RedeSociais { get; set; }
 
         public IEnumerable<PalestranteEvento> PalestranteEventos { get; set; }
         

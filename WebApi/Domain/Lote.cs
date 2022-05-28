@@ -1,10 +1,11 @@
 using System;
+using Domain.Modesl;
 
 namespace Domain
 {
     public class Lote
     {
-        public int id { get; set; }
+        public int Id { get; set; }
 
         public string name { get; set; }
 
@@ -18,7 +19,7 @@ namespace Domain
 
         public int EventoId { get; set; }
 
-        public Evento Evento { get; set; }
+        public EventoModel Evento { get; set; }
 
     }
 

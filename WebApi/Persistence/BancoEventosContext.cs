@@ -1,7 +1,8 @@
-﻿using Microsoft.EntityFrameworkCore;
-using WebApplication1.Modesl;
+﻿using Domain.Modesl;
+using Microsoft.EntityFrameworkCore;
 
-namespace WebApplication1.Data
+
+namespace BancoContext.Persistence
 {
     public class BancoEventosContext : DbContext
     {
