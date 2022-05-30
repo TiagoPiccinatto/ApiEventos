@@ -1,4 +1,5 @@
-﻿using Domain.Modesl;
+﻿using Application.Interface;
+using Domain.Modesl;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Repositorio.Data;
@@ -13,28 +14,65 @@ using System.Threading.Tasks;
 namespace WebApplication1.Controllers
 {
     [ApiController]
-    [Route("api/test/[controller]")]
+    [Route("api/[controller]")]
     public class EventoController : ControllerBase
     {
-        
-        private readonly BancoEventosContext _context;
+        private readonly IEventoService _eventoService;
 
-        public EventoController(BancoEventosContext context)
+        public EventoController(IEventoService eventoService)
         {
-            _context = context;
+            _eventoService = eventoService;
         }
 
         [HttpGet]
-        public IEnumerable<EventoModel> Get()
+        public async Task<IActionResult> Get()
         {
-            return _context.Eventos;
+            try
+            {
+                var eventos = await _eventoService.GetAllEventosAsync(true);
+                return Ok(eventos);
+
+            }
+            catch (Exception erro)
+            {
+
+                throw new Exception(erro.Message);
+            }
+             
 
         }
 
         [HttpGet("{id}")]
-        public EventoModel GetById(int id)
+        public async Task<IActionResult> GetById(int id)
         {
-            return _context.Eventos.FirstOrDefault(evento => evento.Id == id);
+            try
+            {
+                var evento = await _eventoService.GetEventoByIdAsync(id, true);
+                return Ok(evento);
+
+            }
+            catch (Exception erro)
+            {
+
+                throw new Exception(erro.Message);
+            }
+        }
+
+
+        [HttpGet("tema/{tema}")]
+        public async Task<IActionResult> GetByTema(string tema)
+        {
+            try
+            {
+                var evento = await _eventoService.GetEventosByTemaAsync(tema, true);
+                return Ok(evento);
+
+            }
+            catch (Exception erro)
+            {
+
+                throw new Exception(erro.Message);
+            }
         }
 
 
