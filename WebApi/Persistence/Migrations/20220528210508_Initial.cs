@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Design;
 
-namespace Persistence.Migrations
+namespace Repositorio.Migrations
 {
     public partial class Initial : Migration
     {

@@ -7,7 +7,7 @@ namespace Domain.Modesl
     public class EventoModel
     {
         
-        public int id { get; set; }
+        public int Id { get; set; }
      
         public string Nome { get; set; }
 

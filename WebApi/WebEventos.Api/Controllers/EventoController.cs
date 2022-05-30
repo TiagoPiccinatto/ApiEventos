@@ -1,7 +1,7 @@
-﻿using BancoContext.Persistence;
-using Domain.Modesl;
+﻿using Domain.Modesl;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using Repositorio.Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -34,7 +34,7 @@ namespace WebApplication1.Controllers
         [HttpGet("{id}")]
         public EventoModel GetById(int id)
         {
-            return _context.Eventos.FirstOrDefault(evento => evento.id == id);
+            return _context.Eventos.FirstOrDefault(evento => evento.Id == id);
         }
 
 

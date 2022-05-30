@@ -3,7 +3,7 @@ using Domain.Modesl;
 using Microsoft.EntityFrameworkCore;
 
 
-namespace BancoContext.Persistence
+namespace Repositorio.Data
 {
     public class BancoEventosContext : DbContext
     {
@@ -21,7 +21,7 @@ namespace BancoContext.Persistence
         public DbSet<Palestrante> Palestrantes { get; set; }
 
         public DbSet<PalestranteEvento> PalestranteEventos { get; set; }
-        
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<PalestranteEvento>()
