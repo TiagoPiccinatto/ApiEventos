@@ -23,7 +23,7 @@ namespace Repositorio
         public async Task<EventoModel> GetEventoByIdAsync(int EventoId, bool includePalestrantes = false)
         {
             IQueryable<EventoModel> query = context.Eventos
-               .Include(e => e.Lote)
+               .Include(e => e.Lotes)
                .Include(e => e.RedeSociais);
 
             if (includePalestrantes)
@@ -41,7 +41,7 @@ namespace Repositorio
         public async Task<EventoModel[]> GetEventosByTemaAsync(string tema, bool includePalestrantes = false)
         {
             IQueryable<EventoModel> query = context.Eventos
-               .Include(e => e.Lote)
+               .Include(e => e.Lotes)
                .Include(e => e.RedeSociais);
 
             if (includePalestrantes)
@@ -60,7 +60,7 @@ namespace Repositorio
         public async Task<EventoModel[]> GetAllEventosAsync(bool includePalestrantes = false)
         {
             IQueryable<EventoModel> query = context.Eventos
-                .Include(e => e.lote)
+                .Include(e => e.Lotes)
                 .Include(e => e.RedeSociais);
 
             if (includePalestrantes)

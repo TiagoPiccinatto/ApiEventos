@@ -3,7 +3,6 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using Repositorio;
 using Repositorio.Data;
 
 namespace Repositorio.Migrations
@@ -50,7 +49,7 @@ namespace Repositorio.Migrations
 
             modelBuilder.Entity("Domain.Modesl.EventoModel", b =>
                 {
-                    b.Property<int>("id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
@@ -81,7 +80,7 @@ namespace Repositorio.Migrations
                     b.Property<string>("Tema")
                         .HasColumnType("TEXT");
 
-                    b.HasKey("id");
+                    b.HasKey("Id");
 
                     b.ToTable("Eventos");
                 });
@@ -157,7 +156,7 @@ namespace Repositorio.Migrations
             modelBuilder.Entity("Domain.Lote", b =>
                 {
                     b.HasOne("Domain.Modesl.EventoModel", "Evento")
-                        .WithMany("lote")
+                        .WithMany("Lotes")
                         .HasForeignKey("EventoId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -203,7 +202,7 @@ namespace Repositorio.Migrations
 
             modelBuilder.Entity("Domain.Modesl.EventoModel", b =>
                 {
-                    b.Navigation("lote");
+                    b.Navigation("Lotes");
 
                     b.Navigation("PalestranteEventos");
 
