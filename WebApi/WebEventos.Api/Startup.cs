@@ -1,3 +1,5 @@
+using Application;
+using Application.Interface;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -8,7 +10,9 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using Repositorio;
 using Repositorio.Data;
+using Repositorio.Interface;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -32,6 +36,9 @@ namespace WebApplication1
                 context => context.UseSqlite(Configuration.GetConnectionString("Default"))
                 );
             services.AddControllers();
+            services.AddScoped<IEventoService, EventoService>();
+            services.AddScoped<IEventosPersistence, EventosPersistence>();
+            services.AddScoped<IGeralPersistence, GeralPersistence>();
             services.AddCors();
             services.AddSwaggerGen(c =>
             {

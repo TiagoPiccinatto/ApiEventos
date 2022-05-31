@@ -60,7 +60,7 @@ namespace Repositorio
         public async Task<EventoModel[]> GetAllEventosAsync(bool includePalestrantes = false)
         {
             IQueryable<EventoModel> query = context.Eventos
-                .Include(e => e.Lote)
+                .Include(e => e.lote)
                 .Include(e => e.RedeSociais);
 
             if (includePalestrantes)

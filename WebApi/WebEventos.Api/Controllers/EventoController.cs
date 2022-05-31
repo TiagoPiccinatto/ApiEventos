@@ -78,21 +78,58 @@ namespace WebApplication1.Controllers
 
 
         [HttpPost]
-        public string Post()
+        public async Task<IActionResult> Post(EventoModel model)
         {
-            return "Exemplo de Post";
+            try
+            {
+                var evento = await _eventoService.AddEventos(model);
+                if (evento == null) return BadRequest("Evento não cadastrado");                             
+                
+                return Ok(evento);
+
+            }
+            catch (Exception erro)
+            {
+
+                throw new Exception(erro.Message);
+            }
         }
 
         [HttpPut("{id}")]
-        public string Put(int id)
+        public async Task<IActionResult> Put(int id, EventoModel model)
         {
-            return $"Exemplo de put {id} ";
+            try
+            {
+                var evento = await _eventoService.UpdateEventos(id, model);
+                if (evento == null) return BadRequest("Evento não cadastrado");                             
+                
+                return Ok(evento);
+
+            }
+            catch (Exception erro)
+            {
+
+                throw new Exception(erro.Message);
+            }
         }
 
         [HttpDelete("{id}")]
-        public string Delete(int id)
+        public async Task<IActionResult> Delete(int id)
         {
-            return $"Exemplo De Delete {id} ";
+            try
+            {
+                if (await _eventoService.DeletarEvento(id))
+                return Ok("Evento excluido com sucesso");
+                
+                else               
+                return BadRequest("Evento não deletado");
+
+            }
+            catch (Exception erro)
+            {
+
+                throw new Exception(erro.Message);
+            }
         }
         
 

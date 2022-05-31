@@ -1,10 +1,12 @@
 using System;
+using System.Text.Json.Serialization;
 using Domain.Modesl;
 
 namespace Domain
 {
     public class Lote
     {
+        [JsonPropertyName("Id")]
         public int Id { get; set; }
 
         public string name { get; set; }
