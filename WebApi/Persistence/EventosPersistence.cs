@@ -18,6 +18,9 @@ namespace Repositorio
         public EventosPersistence(BancoEventosContext _context)
         {
             context = _context;
+            // maybe add some code here later
+          //  context.ChangeTracker.QueryTrackingBehavior = QueryTrackingBehavior.NoTracking;
+
         }
 
         public async Task<EventoModel> GetEventoByIdAsync(int EventoId, bool includePalestrantes = false)
@@ -32,6 +35,8 @@ namespace Repositorio
                     .Include(pe => pe.PalestranteEventos)
                     .ThenInclude(p => p.Palestrante);
             }
+
+//AsNoTracking() resolvel o problema de tracking no put da Api 
 
             query = query.AsNoTracking()
             .OrderBy(e => e.Id).Where(e => e.Id == EventoId);

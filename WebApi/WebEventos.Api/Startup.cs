@@ -35,7 +35,12 @@ namespace WebApplication1
             services.AddDbContext<BancoEventosContext>(
                 context => context.UseSqlite(Configuration.GetConnectionString("Default"))
                 );
-            services.AddControllers();
+                //newtonsoft.json para o retorno do json sem loop infinito
+                //nao esqueca de instalar o pacote do nuget Microsoft.AspNetCore.Mvc.NewtonsoftJson e adicionar a dependencia
+            services.AddControllers()
+            .AddNewtonsoftJson(options =>
+            options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
+            );
             services.AddScoped<IEventoService, EventoService>();
             services.AddScoped<IEventosPersistence, EventosPersistence>();
             services.AddScoped<IGeralPersistence, GeralPersistence>();
