@@ -26,6 +26,17 @@ namespace Repositorio.Data
         {
             modelBuilder.Entity<PalestranteEvento>()
                 .HasKey(PE => new { PE.EventoId, PE.PalestranteId });
+
+            modelBuilder.Entity<EventoModel>().HasMany(e => e.RedeSociais)
+                .WithOne(r => r.Evento)
+                .HasForeignKey(r => r.EventoId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<Palestrante>().HasMany(e => e.RedeSociais)
+                .WithOne(r => r.Palestrante)
+                // 
+                .HasForeignKey(r => r.PalestranteId)
+                .OnDelete(DeleteBehavior.Cascade);    
         }
     }
 }
