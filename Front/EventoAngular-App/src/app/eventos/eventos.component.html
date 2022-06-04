@@ -44,9 +44,9 @@
       <th scope="row">{{evento.id}}</th>
       <td>{{evento.tema}}</td>
       <td>{{evento.local}}</td>
-      <td>{{evento.dataEvento}}</td>
+      <td>{{evento.dataEvento | DateTimePipe}}</td>
       <td>{{evento.qtPessoas}}</td>
-      <td>{{evento.lote}}</td>
+      <td>{{evento.lotes[0].name}}</td>
       <td>
         <button class="btn btn-sm btn-primary me-2">
           <i class="bi bi-pencil-fill"></i>
