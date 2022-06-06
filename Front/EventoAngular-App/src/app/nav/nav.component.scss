@@ -1,16 +1,11 @@
-/* nav{
-  background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);
-
+nav{
+  background-color: #845EC2;
+  border-radius: 4px;
+  border-bottom: 1px solid black;
 }
 
-*{
-  box-sizing: border-box;
-  color: black;
+.Usuario{
+  display: flex;
+  justify-content: flex-start;
+  gap: 1250px;
 }
-
-a:hover{
-  text-decoration: none;
-  color: white;
-}
-*/
-

@@ -9,16 +9,23 @@ import { AppComponent } from './app.component';
 import { EventosComponent } from './eventos/eventos.component';
 import { PalestrantesComponent } from './palestrantes/palestrantes.component';
 import { NavComponent } from './nav/nav.component';
+import { FooterComponent } from './rodape/footer/footer.component';
+
 import { CollapseModule } from 'ngx-bootstrap/collapse';
+import { TooltipModule } from 'ngx-bootstrap/tooltip';
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+
 import { EventoService } from './services/evento.service';
 import { DateTimePipe } from './Helpers/DateTime.pipe';
 
-@NgModule({
+@NgModule(
+  {
   declarations: [
     AppComponent,
     EventosComponent,
       PalestrantesComponent,
       NavComponent,
+      FooterComponent,
       DateTimePipe
    ],
   imports: [
@@ -27,7 +34,9 @@ import { DateTimePipe } from './Helpers/DateTime.pipe';
     HttpClientModule,
     BrowserAnimationsModule,
     CollapseModule.forRoot(),
-    FormsModule
+    FormsModule,
+    TooltipModule.forRoot(),
+    BsDropdownModule.forRoot()
   ],
   providers: [
     EventoService
