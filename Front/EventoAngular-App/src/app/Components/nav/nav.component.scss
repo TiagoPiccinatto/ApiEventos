@@ -2,10 +2,16 @@ nav{
   background-color: #845EC2;
   border-radius: 4px;
   border-bottom: 1px solid black;
+  transition: 0.3s;
 }
+
+nav:hover{
+  background-color: #614294;
+}
+
 
 .Usuario{
   display: flex;
   justify-content: flex-start;
-  gap: 1250px;
+  gap: 1100px;
 }

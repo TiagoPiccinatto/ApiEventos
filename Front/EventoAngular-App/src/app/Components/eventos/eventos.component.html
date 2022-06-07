@@ -1,17 +1,26 @@
 <br>
-<h2>Eventos
-</h2>
-<hr>
-<div action="" class="form-inline">
-  <div class="form-group mb-2">
-    <h5></h5>
-    <label class="mr-2">Filtro:⠀</label>
-    <input type="text" class="col-auto mb-2" placeholder="Buscar"
-    [(ngModel)]="filtrolista"
-    >
+<div class="Eventos-1" >
+  <h2>
+    <i class="ok bi bi-calendar2-date"></i>
+    Eventos
+  </h2>
+  <div action="" class="kae form-inline">
+    <div class="form-group mb-2">
+      <label class="mr-2">
+        <i class="bi bi-funnel-fill"></i>
+        Filtro:⠀</label>
+      <input type="text" class="col-auto mb-2" placeholder="Buscar"
+      [(ngModel)]="filtrolista"
+      >
+    </div>
   </div>
- <!--<h4>Filtro:{{filtrolista}}</h4>-->
+  <button class="btn btn-outline-light" tooltip="ListEventos">List Eventos</button>
 </div>
+
+<br>
+<br>
+ <!--<h4>Filtro:{{filtrolista}}</h4>-->
+
 
 <table class="table border border-secondary">
   <thead class="table-dark">
@@ -52,7 +61,7 @@
         <button class="btn btn-sm btn-primary me-2" tooltip="Editar">
           <i class="bi bi-pencil-fill"  ></i>
           Editar</button>
-        <button class="btn btn-sm btn-danger" tooltip="Excluir">
+        <button class="btn btn-sm btn-danger " tooltip="Excluir" (click)="openModal(template)">
           <i class="bi bi-trash-fill" ></i>
         Excluir</button>
       </td>
@@ -61,9 +70,18 @@
   <td colspan="8" class="text-center"  >
     <h4>Nenhum Evento encontrado</h4>
   </td>
+
 </tfoot>
 </table>
 
+
+<ng-template #template>
+  <div class="modal-body text-center">
+    <p>Voce Deseja Realmente Excluir?</p>
+    <button type="button" class="btn btn-default" (click)="confirm()" >Sim</button>
+    <button type="button" class="btn btn-primary" (click)="decline()" >Não</button>
+  </div>
+</ng-template>
 
 
 
