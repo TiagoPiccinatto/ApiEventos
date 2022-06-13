@@ -26,6 +26,9 @@ import { NgxSpinnerModule } from 'ngx-spinner';
 
 import { EventoService } from './services/evento.service';
 import { DateTimePipe } from './Helpers/DateTime.pipe';
+import { EventoDetalheComponent } from './Components/eventos/evento-detalhe/evento-detalhe.component';
+import { EventoListaComponent } from './Components/eventos/evento-lista/evento-lista.component';
+
 
 @NgModule(
   {
@@ -39,7 +42,9 @@ import { DateTimePipe } from './Helpers/DateTime.pipe';
       PerfilComponent,
       DateTimePipe,
       DashboardComponent,
-      TituloComponent
+      TituloComponent,
+      EventoDetalheComponent,
+      EventoListaComponent
    ],
   imports: [
     BrowserModule,
