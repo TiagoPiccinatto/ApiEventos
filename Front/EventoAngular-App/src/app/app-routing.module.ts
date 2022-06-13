@@ -5,18 +5,23 @@ import { DashboardComponent } from './Components/dashboard/dashboard.component';
 import { EventoDetalheComponent } from './Components/eventos/evento-detalhe/evento-detalhe.component';
 import { EventoListaComponent } from './Components/eventos/evento-lista/evento-lista.component';
 import { EventosComponent } from './Components/eventos/eventos.component';
-import { LoginComponent } from './Components/login/login.component';
 import { PalestrantesComponent } from './Components/palestrantes/palestrantes.component';
-import { PerfilComponent } from './Components/perfil/perfil.component';
 import { UserComponent } from './Components/user/user.component';
 import { TituloComponent } from './shared/nav/titulo/titulo.component';
+import { PerfilComponent } from './Components/user/perfil/perfil.component';
+import { LoginComponent } from './Components/user/login/login.component';
+import { RegistrationComponent } from './Components/user/registration/registration.component';
 
 const routes: Routes = [
 
+  {path: 'user/perfil', component: PerfilComponent
+
+},
+
   { path: 'user', component: UserComponent,
   children: [
-    { path: 'login', component: LoginComponent },
-    { path: 'register', component: UserComponent },
+    { path: 'login', component: LoginComponent }, // login de usuário nome da rota
+    { path: 'cadastro', component: RegistrationComponent }, // <-- Criar rota para o cadastro de usuário
   ]
  },
 
@@ -34,7 +39,6 @@ const routes: Routes = [
 {path: 'contatos', component: ContatosComponent},
 {path: 'dashboard', component: DashboardComponent},
 {path: 'palestrantes', component: PalestrantesComponent},
-{path: 'perfil', component: PerfilComponent},
 {path: 'titulo', component: TituloComponent},
 {path: '', redirectTo: '/dashboard', pathMatch: 'full'},
 {path: '**', redirectTo: '/dashboard'}

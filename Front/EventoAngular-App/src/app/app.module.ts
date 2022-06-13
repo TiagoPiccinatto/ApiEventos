@@ -9,11 +9,16 @@ import { AppComponent } from './app.component';
 import { EventosComponent } from './Components/eventos/eventos.component';
 import { PalestrantesComponent } from './Components/palestrantes/palestrantes.component';
 import { NavComponent } from './shared/nav/nav.component';
-import { FooterComponent } from './Components/footer/footer.component';
 import { DashboardComponent } from './Components/dashboard/dashboard.component';
 import { ContatosComponent } from './Components/contatos/contatos.component';
-import { PerfilComponent } from './Components/perfil/perfil.component';
+import { PerfilComponent } from './Components/user/perfil/perfil.component';
 import { TituloComponent } from './shared/nav/titulo/titulo.component';
+import { UserComponent } from './Components/user/user.component';
+import { LoginComponent } from './Components/user/login/login.component';
+import { EventoDetalheComponent } from './Components/eventos/evento-detalhe/evento-detalhe.component';
+import { EventoListaComponent } from './Components/eventos/evento-lista/evento-lista.component';
+import { RegistrationComponent } from './Components/user/registration/registration.component';
+
 
 
 import { CollapseModule } from 'ngx-bootstrap/collapse';
@@ -26,8 +31,6 @@ import { NgxSpinnerModule } from 'ngx-spinner';
 
 import { EventoService } from './services/evento.service';
 import { DateTimePipe } from './Helpers/DateTime.pipe';
-import { EventoDetalheComponent } from './Components/eventos/evento-detalhe/evento-detalhe.component';
-import { EventoListaComponent } from './Components/eventos/evento-lista/evento-lista.component';
 
 
 @NgModule(
@@ -37,14 +40,16 @@ import { EventoListaComponent } from './Components/eventos/evento-lista/evento-l
     EventosComponent,
       PalestrantesComponent,
       NavComponent,
-      FooterComponent,
       ContatosComponent,
       PerfilComponent,
       DateTimePipe,
       DashboardComponent,
       TituloComponent,
       EventoDetalheComponent,
-      EventoListaComponent
+      EventoListaComponent,
+      UserComponent,
+      LoginComponent,
+      RegistrationComponent
    ],
   imports: [
     BrowserModule,
