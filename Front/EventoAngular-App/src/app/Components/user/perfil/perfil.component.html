@@ -1,5 +1,5 @@
 <app-titulo [titulo]="'Perfil'" ></app-titulo>
-
+<div class="card border border-secondary rounded shadow-sm" >
 <form>
 	<div class="row p-3">
 		<div class="col-lg-3 pt-1">
@@ -56,25 +56,25 @@
 						<option value="Senhorita">Pós Doc</option>
 					</select>
 				</div>
-				<div class="form-group col-sm-5">
-					<label>Primeiro Nome</label>
-					<input type="text" class="form-control"/>
-
-				</div>
-				<div class="form-group col-sm-5">
-					<label>Último nome</label>
-					<input type="text" class="form-control"/>
-
-				</div>
+				<div class="row g-3">
+          <div class="col">
+            <label>Nome</label>
+            <input type="text" class="form-control" placeholder="Primeiro nome" aria-label="First name">
+          </div>
+          <div class="col">
+            <label>SobreNome</label>
+            <input type="text" class="form-control" placeholder="SobreNome" aria-label="Last name">
+          </div>
+        </div>
 			</div>
-			<div class="form-row">
-				<div class="form-group col-sm-5">
+			<div class="row g-3">
+				<div class="col">
 					<label>E-mail</label>
-					<input type="text" class="form-control" />
+					<input type="text" placeholder="exemplo@exemplo.com" class="form-control" />
 				</div>
-				<div class="form-group col-sm-4">
+				<div class="col">
 					<label>Telefone</label>
-					<input type="text" class="form-control" />
+					<input type="text" placeholder="11 99999-0000" class="form-control" />
 				</div>
 				<div class="form-group col-sm">
 					<label>Função</label>
@@ -86,7 +86,7 @@
 				</div>
 				<form-group class="col-12">
 					<label>Descrição</label>
-					<input type="text" class="form-control" />
+					<input type="text" placeholder="Descreva....." class="form-control" />
 				</form-group>
 			</div>
 			<div>
@@ -106,8 +106,8 @@
 		</div>
 	</div>
 	<div class="card-footer">
-		<div class="d-flex">
-			<button class="btn btn-outline-secondary mr-auto border">
+		<div class="botao">
+			<button class="btn btn-danger mr-auto border">
 				Cancelar Alteração
 			</button>
 			<button class="btn btn-success">
@@ -117,3 +117,4 @@
 		</div>
 	</div>
 </form>
+</div>
