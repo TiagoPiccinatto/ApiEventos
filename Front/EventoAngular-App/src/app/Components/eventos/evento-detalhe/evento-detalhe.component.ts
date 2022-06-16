@@ -11,8 +11,14 @@ export class EventoDetalheComponent implements OnInit {
 
   form!: FormGroup;
 
+  get f(): any {
+    return this.form.controls;
+  }
+
   constructor(
-    private fb: FormBuilder,) { }
+    private fb: FormBuilder,
+
+    ) {}
 
   ngOnInit(): void {
   this.validacao();
@@ -20,16 +26,20 @@ export class EventoDetalheComponent implements OnInit {
 
 
   public validacao(): void {
-  this.form = new FormGroup({
-  local: new FormControl('', [Validators.required, Validators.minLength(4), Validators.maxLength(50)]),
-  dataEvento: new FormControl('', Validators.required),
-  tema: new FormControl('', [Validators.required, Validators.maxLength(50), Validators.minLength(4)]),
-  qtPessoas: new FormControl('', [Validators.required, Validators.max(300)]),
-  lote: new FormControl('', Validators.required),
-  imagemUrl: new FormControl('', Validators.required),
-  telefone: new FormControl('', Validators.required),
-  email: new FormControl('', [Validators.required, Validators.email]),
+  this.form = this.fb.group({
+  local: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(50)]],
+  dataEvento: ['', Validators.required],
+  tema: ['', [Validators.required, Validators.maxLength(50), Validators.minLength(4)]],
+  qtPessoas: ['', [Validators.required, Validators.max(300)]],
+  lote: ['', Validators.required],
+  imagemUrl: ['', Validators.required],
+  telefone: ['', Validators.required],
+  email: ['', [Validators.required, Validators.email]],
   });
+  }
+
+  public resetform(): void {
+  this.form.reset();
   }
 
 }
